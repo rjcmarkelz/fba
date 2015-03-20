@@ -47,11 +47,37 @@ Instantiation of reactions will be wrong if there are different steriochemistry 
 # Development Mode
 model will not run so move all the 
 
+#Day 2
+Development mode- try-biomass in the fba file, some biomass is produced some is not. start from the bottom up. Try to fill it up. 
+
+try-secretions- maximum number of biomass with minimum amount of secretions
+all-compounds[cytosol]
+or if you are looking transporters all-external-compounds
+try-secretions-weight start with -2, cost something to add secretion 
+secretions so then compounds can be used in other reactions
+
+try-biomass-weight 
+cost of adding 1 reaction is 30
+cost of adding 1 external reactions is 100
+
+#Bottom-up modeling
+smaller model is better, you have made all the precursors. 
+
+absolute value, upper and lower bounds add constraints to pathway. 
+
+
+####USE THE try-optimize 
+
+try-optimize:
+    maximize try-biomass
+    minimize try-reactions :upper-bound 3
+    minimize try-nutrients :lower-bound 1 :upper-bound 5
+    minimize try-secretions :upper-bound 10
 
 
 
 
-
+    
 
 
 
